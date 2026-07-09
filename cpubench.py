@@ -140,7 +140,7 @@ def main():
 
     if not args.json:
         print("=" * 50)
-        print("  i3score20（Python式）")
+        print("  i3score20（Python版）")
         print("=" * 50)
         print(f"CPU        : {cpu_name}")
         print(f"論理コア数 : {workers}")
@@ -201,9 +201,6 @@ def main():
         print("-" * 50)
         print(f"総合スコア  : {score:.1f} / 20 点")
         print("-" * 50)
-        if reference is DEFAULT_REFERENCE:
-            print("※ 基準値はCore i3-13100の推定値です。")
-            print("  実機のi3-13100があれば --calibrate で正確な基準に更新できます。")
 
 
 if __name__ == "__main__":
