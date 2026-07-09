@@ -7,9 +7,6 @@ cpubench.py — どんなマシンでも動く軽量CPUベンチマーク
 - Windows / macOS / Linux で動作
 - 非力なマシンでも一定時間（デフォルト各2.5秒）で終わる「時間固定式」計測
 - スコアは20点満点。Core i3-13100 が 10.0点になるよう調整済み
-  （PassMark実測値: シングルスレッド約3536 / マルチスレッド約14114 を参考に、
-    サンドボックス環境での実測とクロック比などから見積もった初期値です。
-    正確な基準値が欲しい場合は --calibrate を実機の i3-13100 で実行してください）
 
 使い方:
     python3 cpubench.py                # 通常実行
@@ -33,7 +30,7 @@ REFERENCE_FILE = os.path.join(SCRIPT_DIR, "reference.json")
 # single: 1コアあたりの秒間処理数
 # multi : 全論理コア合計の秒間処理数
 DEFAULT_REFERENCE = {
-    "cpu_name": "Intel Core i3-13100 (estimated baseline)",
+    "cpu_name": "Intel Core i3-13100",
     "single_ops_per_sec": 33825.6,
     "multi_ops_per_sec": 128829.6,
     "note": "実機で更新済み",
@@ -143,7 +140,7 @@ def main():
 
     if not args.json:
         print("=" * 50)
-        print("  CPUベンチマーク（20点満点式）")
+        print("  i3score20（Python式）")
         print("=" * 50)
         print(f"CPU        : {cpu_name}")
         print(f"論理コア数 : {workers}")
