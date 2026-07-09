@@ -11,8 +11,8 @@
 #   sh cpubench.sh --calibrate      このマシンを新しい基準(10.0点)として保存
 #
 # スコアの基準（10.0点 = Core i3-13100想定）:
-#   single_ops_per_sec = 2088.80
-#   multi_ops_per_sec  = 2494.40
+#   single_ops_per_sec = 2127.20
+#   multi_ops_per_sec  = 2432.00
 # ※ この基準値は実測キャリブレーション値です。--calibrate で上書き可能です。
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
@@ -140,9 +140,9 @@ multi_ops=$(awk -v c="$multi_count" -v d="$DURATION" 'BEGIN{printf "%.2f", c/d}'
 [ "$JSON" -eq 1 ] || echo "  -> ${multi_ops} 回/秒（${WORKERS}プロセス合計）"
 
 # --- 基準値の読み込み／保存 -----------------------------------------------
-DEFAULT_REF_NAME="Core i3-13100 (calibrated baseline)"
-DEFAULT_REF_SINGLE=33825.6
-DEFAULT_REF_MULTI=128829.6
+DEFAULT_REF_NAME="Core i3-13100"
+DEFAULT_REF_SINGLE=2127.20
+DEFAULT_REF_MULTI=2432.00
 
 if [ "$CALIBRATE" -eq 1 ]; then
   {
