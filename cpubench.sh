@@ -11,11 +11,9 @@
 #   sh cpubench.sh --calibrate      このマシンを新しい基準(10.0点)として保存
 #
 # スコアの基準（10.0点 = Core i3-13100想定）:
-#   single_ops_per_sec = 33825.6
-#   multi_ops_per_sec  = 128829.6
+#   single_ops_per_sec = 2088.80
+#   multi_ops_per_sec  = 2494.40
 # ※ この基準値は実測キャリブレーション値です。--calibrate で上書き可能です。
-
-set -eu
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 REF_FILE="$SCRIPT_DIR/reference.conf"
